@@ -14,8 +14,17 @@ void tempRead(char *serialNum);
 int main(int argc, char *argv[])
 {
   wiringPiSetup () ;
-  char *device = "28-021312d0c0aa";
-  tempRead(device); /*call function, pass device serial number*/
+
+ char data[1000];
+ argv[1];
+
+/*  char *device = "28-021312d0c0aa"; */
+if(argc <2)
+{
+  perror("more than 1 arguments");
+  exit(1);
+}
+  tempRead(argv[1]); /*call function, pass device serial number*/
   
   return 0; /*never returned*/
 }
